@@ -1,0 +1,25 @@
+.Clock{
+    color:blue;
+    height :150px ;
+    width :200px;
+    border-radius:50%;
+    background-color: #282c34;
+    margin: auto;
+    margin-top: 60px;
+    text-align: center;
+    padding-top: 2%;
+    border: 15px solid black;
+    font-size: 25px;
+   
+  }
+  
+  .mySwitch {
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 43%;
+    margin-top: 100px;
+    padding: 50px;
+    
+  }
+  
