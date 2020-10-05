@@ -31,13 +31,14 @@ class App extends React.Component{
 
        <div className={classes.mySwitch}>
         <div> <Switch onChange={this.handleChange} checked={this.state.checked}  onClick={this.handleChange}/></div>
-       <div>  <FontAwesomeIcon icon={faCalendar} size={99}/> </div>
+       <div>  <FontAwesomeIcon icon={faCalendar}/> </div>
        </div>
 
         <div  className = {classes.Clock}>
           <br></br>
-        <div>{displayDate}</div>
+        
         <div>{this.state.date.toLocaleTimeString()}</div>
+        <div>{displayDate}</div>
 
 
 
