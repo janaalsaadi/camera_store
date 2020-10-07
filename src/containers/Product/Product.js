@@ -86,7 +86,7 @@ export default class Product extends Component{
                      <div className={classes.Box}>SHOW BY PRODUCT TYPE</div>
                      <div className={classes.First}>
                          {images.map((image , index)=> (
-                             <div className={classes.Sec}> 
+                             <div className={classes.Sec} key={index}> 
                                  <img src={image.src} style={{ width:'75%'}}/>
                              <p className={classes.innerP}><a href="#">{image.txt}</a></p>
                              </div>
@@ -96,9 +96,10 @@ export default class Product extends Component{
 
                      </div>
                  </div>
-            {Products.map(prod => ( 
+            {Products.map((prod,index) => ( 
             <ProductItem 
-            key={prod.id}
+            key={index}
+            id={prod.id}
             name = {prod.name}
             price={prod.price}
             image={prod.image}

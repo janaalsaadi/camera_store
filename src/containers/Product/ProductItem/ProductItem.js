@@ -1,12 +1,20 @@
 import React , { Component}from 'react';
 import classes from './ProductItem.module.css';
 import ReactStars from "react-rating-stars-component";
+import { connect } from "react-redux";
+import {NavLink} from 'react-router-dom';
 
 
-export default class ProductItem extends Component{
+ class ProductItem extends Component{
 
+    state={
+        qta:0,
+        orders:[],
+    }
    
-
+    qtaProductHandler = (value) => {
+        this.setState({qta:value});
+    }
     render(){
         
         return(
@@ -46,8 +54,8 @@ export default class ProductItem extends Component{
                   <div style={{display:'flex' , flexDirection:'row' }}>
                     <div style={{ width:'63%'}}>  
                     <ul  style={{paddingLeft:'5%',width:'98%'}}>
-                        {this.props.info.map(item => (
-                            <li>{item.data}</li>
+                        {this.props.info.map((item,index) => (
+                            <li key={index}>{item.data}</li>
                         ))}
                     </ul>
 
@@ -58,11 +66,18 @@ export default class ProductItem extends Component{
                         <h3 style={{color:'#8B0000', textAlign:'center'}}>{this.props.price}</h3>
                         <p>Pay { this.props.price} / month with <b>affirm</b></p>
                         <p><a>Learn more</a></p>
-                        <p ><b>Qty:</b> <input type="text" style={{width:'15%'}}/> </p>
+                        <p ><b>Qty:</b> <input type="text" style={{width:'15%'}} onChange={item => this.qtaProductHandler(item.target.value)}/> </p>
                         <p style={{ height:'17%'}}>
-                        <button className={classes.myButton}
-                    
-                         >ADD TO CART</button>
+                            
+                       
+                             <button  onClick={() => this.props.onOrderAdded(this.props.id ,this.props.name, this.props.image , this.props.price , this.state.qta)}>
+                             <NavLink className={classes.myButton}
+                        to = "/cart"
+                         >
+                             ADD TO CART
+                             </NavLink>
+                             </button>
+                         
                         </p>
 
 
@@ -74,3 +89,18 @@ export default class ProductItem extends Component{
         )
     }
 }
+
+
+
+const mapDispathToProps = dispatch => {
+return{
+ onOrderAdded :(id ,name , image , price, qta ) =>
+     dispatch({type:"ORDER" , orderInfo:{orderid:id , orderName:name , image:image , price:price ,qta:qta }}),
+ 
+ 
+}
+
+}
+
+
+export default connect(null , mapDispathToProps) (ProductItem);
