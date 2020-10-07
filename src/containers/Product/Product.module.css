@@ -1,0 +1,52 @@
+.Side{
+    width: 55%;
+   
+    height: 1000px;
+    float: right;
+    margin-top:-2%;
+}
+.Content{
+    margin-left: 8%;
+    display:flex;
+    flex-direction: row;
+}
+
+.ProductType{
+flex: 100%;
+width: 85%;
+border: 1px solid gray;
+margin: 2%;
+float: left;
+margin-left:5% ;
+}
+.Box{
+    border:1px solid gray ;
+}
+
+.First{
+    display: flex;
+    flex-direction: row;
+    padding-left: 7%;
+}
+
+.Sec{
+    flex: 15%;
+    width: 15%;
+}
+
+.innerP{
+text-align: center;
+padding-right: 20%;
+}
+
+.SideDiv{
+    background-color:lightgray;
+     padding:0.5% ; 
+     font-weight:bold; 
+     color:gray
+}
+
+.innerSide{
+    display: flex;
+    flex-direction: column;
+}

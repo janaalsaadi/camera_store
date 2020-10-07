@@ -1,0 +1,53 @@
+.myHome{
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+    flex-direction: row;
+    flex-flow: wrap;
+    margin-bottom: 5%;
+   
+}
+
+.Trend{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+
+.card{
+    display: inline-block;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    flex: 1;
+    background-color:lightgray ;
+    margin:0.2%;
+    height:auto
+  }
+
+  .CarouselDiv{
+      width: 100%;
+      height: 300px;
+      margin-top: -2%;
+      margin-bottom: 5%;
+  }
+
+  .innerCarousel{
+      width: 100%;
+      height: 300px;
+  }
+
+  h1{
+      color: gray;
+      margin: 1%;
+  }
+
+  .innerImg{
+background-color: lightgray;
+width: 100%;
+margin: 0.2%;
+  }
+
+  .innerDiv{
+      height:25%;
+  }
