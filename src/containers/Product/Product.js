@@ -26,29 +26,29 @@ export default class Product extends Component{
 
 
                  <div>
-                     <div className={classes.Box}>
-                     <div className={classes.SideDiv}>FILTER BY<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'60%'}}/></div>
+                     <div className={classes.Box }>
+                     <div className={classes.SideDiv}>FILTER BY<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
                         <div className={classes.innerSide}  >
+
                             
-                               <p> <input type="checkbox" /><a href="#">Free 2 Day Shipping (294)</a></p>
-                                <p><input type="checkbox" /><a href="#">Free Standard Shipping (853)</a></p>
-                               <p><input type="checkbox" /><a href="#">Rebate Available (237)</a></p>
-                            
+                        <div> <input type="checkbox"  /><label>Free 2 Day Shipping (294)</label> </div>
+                            <div> <input type="checkbox" /><label>Free Standard Shipping (853)</label> </div>
+                            <div> <input type="checkbox"  /><label>Rebate Available (237)</label> </div>     
                         </div>
                      </div>
                      <br></br>
 
                      <div className={classes.Box}>
-                     <div className={classes.SideDiv}>FLENS INCLUDED<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'90%'}}/></div>
+                     <div className={classes.SideDiv}>FLENS IN<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
                         <div className={classes.innerSide} >
 
 
-                               <p> <input type="checkbox" /><a href="#">18-55mm (47)</a></p>
-                                <p><input type="checkbox" /><a href="#">Free Standard Shipping (853)</a></p>
-                               <p><input type="checkbox" /><a href="#">28-70mm (30)</a></p>
-                               <p><input type="checkbox" /><a href="#">16-50mm (30)</a></p>
-                               <p><input type="checkbox" /><a href="#">16-50mm & 55-210mm (20)</a></p>
-                            
+                            <div> <input type="checkbox"  /><label>18-55mm (47)</label> </div>
+                            <div> <input type="checkbox" /><label>Free Standard Shipping (853)</label> </div>
+                            <div> <input type="checkbox"  /><label>28-70mm (30)</label> </div>
+                            <div> <input type="checkbox" /><label>16-50mm (30)</label> </div>
+                            <div> <input type="checkbox" /><label>16-50mm & 55-210mm (20)</label> </div>
+                           
                         </div>
                      </div>
 
@@ -56,14 +56,14 @@ export default class Product extends Component{
                       <br></br>
 
                      <div className={classes.Box}>
-                     <div className={classes.SideDiv}><p style={{fontSize:'5px'}}>LCD SCREEN TYPE</p><FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'50%'}}/></div>
+                     <div className={classes.SideDiv}>LCD SCR<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'70%'}}/></div>
                         <div className={classes.innerSide} >
                             
-                               <p> <input type="checkbox" /><a href="#">18-55mm (47)</a></p>
-                                <p><input type="checkbox" /><a href="#">Free Standard Shipping (853)</a></p>
-                               <p><input type="checkbox" /><a href="#">28-70mm (30)</a></p>
-                               <p><input type="checkbox" /><a href="#">16-50mm (30)</a></p>
-                               <p><input type="checkbox" /><a href="#">16-50mm & 55-210mm (20)</a></p>
+                        <div> <input type="checkbox"  /><label>18-55mm (47)</label> </div>
+                            <div> <input type="checkbox" /><label>Free Standard Shipping (853)</label> </div>
+                            <div> <input type="checkbox"  /><label>28-70mm (30)</label> </div>
+                            <div> <input type="checkbox" /><label>16-50mm (30)</label> </div>
+                            <div> <input type="checkbox" /><label>16-50mm & 55-210mm (20)</label> </div>
                             
                         </div>
                      </div>
@@ -83,12 +83,12 @@ export default class Product extends Component{
 
              <div>
                  <div className={classes.ProductType}>
-                     <div className={classes.Box}>SHOW BY PRODUCT TYPE</div>
+                     <div className={classes.Box, classes.TopBox}>SHOW BY PRODUCT TYPE</div>
                      <div className={classes.First}>
                          {images.map((image , index)=> (
                              <div className={classes.Sec} key={index}> 
                                  <img src={image.src} style={{ width:'75%'}}/>
-                             <p className={classes.innerP}><a href="#">{image.txt}</a></p>
+                             <p className={classes.innerP}><a href="#" style={{textDecoration:'none' , color:'black'}}>{image.txt}</a></p>
                              </div>
 
                          ))}

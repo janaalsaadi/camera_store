@@ -70,8 +70,9 @@ import {NavLink} from 'react-router-dom';
                         <p style={{ height:'17%'}}>
                             
                        
-                             <button  onClick={() => this.props.onOrderAdded(this.props.id ,this.props.name, this.props.image , this.props.price , this.state.qta)}>
+                             <button style={{backgroundColor:'#8B0000' , borderRadius:'10px'}} onClick={() => this.props.onOrderAdded(this.props.id ,this.props.name, this.props.image , this.props.price , this.state.qta)}>
                              <NavLink className={classes.myButton}
+                             style={{backgroundColor:'#8B0000' , textDecoration:'none'}}
                         to = "/cart"
                          >
                              ADD TO CART

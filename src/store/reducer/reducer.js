@@ -7,7 +7,6 @@ const initialState = {
 
 const orderSuccess = (state, action) => {
    
-    var i=0;
     let newOrder = { 
            id: action.orderInfo.orderid,
            name: action.orderInfo.orderName,

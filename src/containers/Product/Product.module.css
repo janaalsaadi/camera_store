@@ -23,6 +23,12 @@ margin-left:5% ;
     border:1px solid gray ;
 }
 
+.TopBox{
+    background-color: lightgray;
+    color: gray;
+    font-weight: bold;
+}
+
 .First{
     display: flex;
     flex-direction: row;
@@ -49,4 +55,12 @@ padding-right: 20%;
 .innerSide{
     display: flex;
     flex-direction: column;
+    color: gray;
+
 }
+ a{
+     text-decoration: none;
+ }
+ .innerSide a{
+     color: gray;
+ }
