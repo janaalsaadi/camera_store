@@ -1,16 +1,24 @@
 import React , {Component} from 'react';
 import { connect } from "react-redux";
+import classes from './Cart.module.css';
 
 
 class Cart extends Component{
     state = {
- 
         newQta:'',
     }
     qtyHandler = (value) =>{
+    
         this.setState({newQta:value})
 
     }
+
+    handleEmailListChange(index, event) {
+        var orders = this.props.orders.slice(); // Make a copy of the emails first.
+        orders[index].qty = event.target.value; // Update it with the modified email.
+        this.setState({orders: orders}); // Update the state.
+    }
+
     render(){
 
         return(
@@ -18,31 +26,38 @@ class Cart extends Component{
             <h1>My Cart</h1>
             <br></br>
             
-            <div style={{ width:'80%' , margin:'auto' , display:'flex' , justifyContent:'space-between'}}>
-                <p style={{flex:'70%' , textAlign:'left'}}>item</p>
-                <div style={{ flex:'30%',margin:'auto' , display:'flex' , justifyContent:'space-between' }}>
+            <div className={classes.ProductInfo}>
+                <p className={classes.itemDiv}>item</p>
+                <div className={classes.itemDetail}>
                     <p>UNITE PRICE </p>
                     <p>QTY</p>
                     <p>TOTAL</p>
                 </div>
             </div>
-
+ 
             {this.props.ord.map((item ,index) => (
-                          <div key={index} style={{border:'1px solid gray' , width:'80%' , margin:'auto', display:'flex',justifyContent:'space-between' }}>
-                              <div  style={{flex:'70%'  ,display:'flex'}}>
+                          <div key={index} className={classes.ProductInfo} >
+                              <div  className={classes.pic}>
                               <img src={item.image}></img>
                                <p ><b>{item.name}</b></p>
                                </div>
-                               <div style={{ flex:'30%', display:'flex' , justifyContent:'space-between'}}>
+                               <div className={classes.itemInfo}>
                                 <p>{item.price}</p>
-                                <div style={{ display:'flex' , flexDirection:"column" , justifyContent:'right',width:"30%" , paddingTop:'8%'}} >
+                                <div className={classes.actions}>
                                 <input type="text"
-                                onChange={item => this.qtyHandler(item.target.value)} style={{  marginLeft:'45%',textAlign:'right',height:'10%',width:'15%' , marginTop:'2%'}} value={item.qta}/>
-                                <button style={{backgroundColor:'white' , color:'#8B0000' , border:'none' , outline:'none'}}>Update Qty</button>
-                                <button style={{backgroundColor:'white' , color:'#8B0000' , border:'none' , outline:'none'}}>Remove</button>
+                                 onChange={(event) => this.setState({newQta:event.target.value})}
+                                 className={classes.myInput} 
+                                 value={this.state.newQta} placeholder={item.qty} />
+                                <button 
+                                onClick={() => this.props.onUpdateQty(item.name,this.state.newQta)}
+                                className={classes.myBtn}>Update Qty</button>
+                                <button 
+                                onClick={() => this.props.onDelete(item.name)}
+                                className={classes.myBtn}>Remove</button>
                                 </div>
-                                <p>{Number.parseInt(item.price) * Number.parseInt(item.qta)}</p>
+                                <p>{Number.parseInt(item.price) * Number.parseInt(item.qty)}</p>
                                 </div>
+
                           </div> 
                       ))}
             </div>
@@ -56,6 +71,14 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispathToProps = dispatch => {
+    return{
+     onUpdateQty :(name ,qty ) =>
+         dispatch({type:"UPDATE" , updateInfo:{name:name,qty:qty}}),
+     onDelete:(name) => 
+     dispatch({type:"DELETE" , deleteInfo:{name:name}})    
 
+    }
+    }
 
-export default connect(mapStateToProps) (Cart);
+export default connect(mapStateToProps, mapDispathToProps) (Cart);

@@ -4,6 +4,7 @@ import ProductItem from './ProductItem/ProductItem';
 import classes from './Product.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { connect } from "react-redux";
 export default class Product extends Component{
 
 
@@ -99,7 +100,6 @@ export default class Product extends Component{
             {Products.map((prod,index) => ( 
             <ProductItem 
             key={index}
-            id={prod.id}
             name = {prod.name}
             price={prod.price}
             image={prod.image}
@@ -115,3 +115,4 @@ export default class Product extends Component{
         )
     }
 }
+

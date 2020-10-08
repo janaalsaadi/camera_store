@@ -8,12 +8,12 @@ import {NavLink} from 'react-router-dom';
  class ProductItem extends Component{
 
     state={
-        qta:0,
+        qty:0,
         orders:[],
     }
    
-    qtaProductHandler = (value) => {
-        this.setState({qta:value});
+    qtyProductHandler = (value) => {
+        this.setState({qty:value});
     }
     render(){
         
@@ -66,11 +66,11 @@ import {NavLink} from 'react-router-dom';
                         <h3 style={{color:'#8B0000', textAlign:'center'}}>{this.props.price}</h3>
                         <p>Pay { this.props.price} / month with <b>affirm</b></p>
                         <p><a>Learn more</a></p>
-                        <p ><b>Qty:</b> <input type="text" style={{width:'15%'}} onChange={item => this.qtaProductHandler(item.target.value)}/> </p>
+                        <p ><b>Qty:</b> <input type="text" style={{width:'15%'}} onChange={item => this.qtyProductHandler(item.target.value)}/> </p>
                         <p style={{ height:'17%'}}>
                             
                        
-                             <button style={{backgroundColor:'#8B0000' , borderRadius:'10px'}} onClick={() => this.props.onOrderAdded(this.props.id ,this.props.name, this.props.image , this.props.price , this.state.qta)}>
+                             <button style={{backgroundColor:'#8B0000' , borderRadius:'10px'}} onClick={() => this.props.onOrderAdded(this.props.name, this.props.image , this.props.price , this.state.qty)}>
                              <NavLink className={classes.myButton}
                              style={{backgroundColor:'#8B0000' , textDecoration:'none'}}
                         to = "/cart"
@@ -92,11 +92,10 @@ import {NavLink} from 'react-router-dom';
 }
 
 
-
 const mapDispathToProps = dispatch => {
 return{
- onOrderAdded :(id ,name , image , price, qta ) =>
-     dispatch({type:"ORDER" , orderInfo:{orderid:id , orderName:name , image:image , price:price ,qta:qta }}),
+ onOrderAdded :(name , image , price , qty ) =>
+     dispatch({type:"ORDER" , orderInfo:{name:name , image:image , price:price, qty:qty }}),
  
  
 }
