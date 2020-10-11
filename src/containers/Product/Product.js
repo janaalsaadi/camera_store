@@ -8,16 +8,33 @@ import { connect } from "react-redux";
 export default class Product extends Component{
 
    state={
-       checkPrice:false,
-       checkCategory:false,
+       checkPrice1:false,
+       checkPrice2:false,
+       checkPrice3:false,
+       checkCategory1:false,
+       checkCategory2:false,
    }
 
-   checkPriceHandler= () => {
-       this.setState({checkPrice:!this.state.checkPrice})
+   checkPriceHandler1= () => {
+       this.setState({checkPrice1:!this.state.checkPrice1})
 
    } 
-   checkCategoryHandler= () => {
-    this.setState({checkCategory:!this.state.checkCategory})
+
+   checkPriceHandler2= () => {
+    this.setState({checkPrice2:!this.state.checkPrice2})
+
+} 
+
+checkPriceHandler3= () => {
+    this.setState({checkPrice3:!this.state.checkPrice3})
+
+} 
+   checkCategoryHandler1= () => {
+    this.setState({checkCategory1:!this.state.checkCategory1})
+} 
+
+checkCategoryHandler2= () => {
+    this.setState({checkCategory2:!this.state.checkCategory2})
 } 
 
 
@@ -34,29 +51,13 @@ export default class Product extends Component{
 
 
             let displayProduct;
-             if(this.state.checkPrice){
 
-               
-                 displayProduct=
-                 Products.filter(prod => prod.price <250).map((prod,index) => ( 
-                 <ProductItem 
-                 key={index}
-                 name = {prod.name}
-                 price={prod.price}
-                 image={prod.image}
-                 info={prod.info}
-                 MFR={prod.MFR}
-                 Fc ={prod.FC}
-                 > </ProductItem>
-                 
-                 ))
 
-             }
-
-             else if(this.state.checkCategory){
+            
+             if(this.state.checkCategory1 && this.state.checkPrice1){
 
                 displayProduct=
-                Products.filter(prod => prod.FC == "ILCE7M3KB").map((prod,index) => ( 
+                Products.filter(prod => prod.category == "camera" && prod.price <200 && prod.price >50).map((prod,index) => ( 
                 <ProductItem 
                 key={index}
                 name = {prod.name}
@@ -71,6 +72,199 @@ export default class Product extends Component{
                  
              }
 
+             else if(this.state.checkCategory1 && this.state.checkPrice2){
+
+                displayProduct=
+                Products.filter(prod => prod.category == "camera" && prod.price <400 && prod.price >200).map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+             else if(this.state.checkCategory1 && this.state.checkPrice3){
+
+                displayProduct=
+                Products.filter(prod => prod.category == "camera" &&  prod.price >400).map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+
+             
+
+
+
+
+
+             else if(this.state.checkCategory2 && this.state.checkPrice1){
+
+                displayProduct=
+                Products.filter(prod => prod.category == "Lighting" && prod.price <200 && prod.price >50).map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+             else if(this.state.checkCategory2 && this.state.checkPrice2){
+
+                displayProduct=
+                Products.filter(prod => prod.category == "Lighting" && prod.price <400 && prod.price >200).map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+             else if(this.state.checkCategory2 && this.state.checkPrice3){
+
+                displayProduct=
+                Products.filter(prod => prod.category == "Lighting" &&  prod.price >400).map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+            else if(this.state.checkPrice1){
+
+               
+                 displayProduct=
+                 Products.filter(prod => prod.price <200 && prod.price >50).map((prod,index) => ( 
+                 <ProductItem 
+                 key={index}
+                 name = {prod.name}
+                 price={prod.price}
+                 image={prod.image}
+                 info={prod.info}
+                 MFR={prod.MFR}
+                 Fc ={prod.FC}
+                 > </ProductItem>
+                 
+                 ))
+
+             }
+
+             else if(this.state.checkPrice2){
+
+                displayProduct=
+                Products.filter(prod =>  prod.price <400 && prod.price >200).map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+             else if(this.state.checkPrice3){
+
+                displayProduct=
+                Products.filter(prod =>  prod.price >400).map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+
+             else if(this.state.checkCategory1){
+
+                displayProduct=
+                Products.filter(prod => prod.category == "camera").map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+
+
+             else if(this.state.checkCategory2){
+
+                displayProduct=
+                Products.filter(prod => prod.category == "Lighting").map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+
+       
              else{
                 displayProduct=
                 Products.map((prod,index) => ( 
@@ -87,6 +281,8 @@ export default class Product extends Component{
                 ))
              }
 
+
+             
         
         return(
             <div className={classes.Content}>
@@ -99,8 +295,11 @@ export default class Product extends Component{
                      <div className={classes.Box }>
                      <div className={classes.SideDiv}>FILTER BY<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
                         <div className={classes.innerSide}  >
-                        <div> <input type="checkbox"  onChange={this.checkPriceHandler} checked={this.state.checkPrice} /><label>Price</label> </div>
-                            <div> <input type="checkbox"  onChange={this.checkCategoryHandler} checked={this.state.checkCategory}/><label>Category</label> </div>
+                        <div> <input type="checkbox"  onChange={this.checkPriceHandler1} checked={this.state.checkPrice1} /><label>Price 50-200$</label> </div>
+                        <div> <input type="checkbox"  onChange={this.checkPriceHandler2} checked={this.state.checkPrice2} /><label>Price 200-400$</label> </div>
+                        <div> <input type="checkbox"  onChange={this.checkPriceHandler3} checked={this.state.checkPrice3} /><label>Price 400-...$</label> </div>
+                            <div> <input type="checkbox"  onChange={this.checkCategoryHandler1} checked={this.state.checkCategory1}/><label>Category : Camera</label> </div>
+                            <div> <input type="checkbox"  onChange={this.checkCategoryHandler2} checked={this.state.checkCategory2}/><label>Category : Light</label> </div>
                         </div>
                      </div>
                      <br></br>
