@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .Side{
     max-width: 80%;
     width: 80%;
@@ -30,6 +34,15 @@ margin-left:5% ;
     border:1px solid gray ;
 }
 
+.jana{
+   
+    width: 200px;
+}
+
+.jana2{
+   
+    width: 5000px;
+}
 .TopBox{
     background-color: lightgray;
     color: gray;
@@ -60,6 +73,7 @@ padding-right: 20%;
 }
 
 .innerSide{
+    max-width:100%;
     display: flex;
     flex-direction: column;
     color: gray;

@@ -287,25 +287,25 @@ checkCategoryHandler2= () => {
         return(
             <div className={classes.Content}>
              <div className={classes.Side} >
-                 <p style={{width:'100%'}}><a href="#">Home</a>/ <a href="#">PHOTO&VIDEO</a>/ <a href="#">CAMERAS</a></p>
+                 <p style={{width:'100%' , textAlign:'left'}}><a href="#">Home</a>/ <a href="#">PHOTO&VIDEO</a>/ <a href="#">CAMERAS</a></p>
 
 
 
-                 <div>
+                 <div className={classes.jana}>
                      <div className={classes.Box }>
-                     <div className={classes.SideDiv}>FILTER BY<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
+                     <div className={classes.SideDiv}>FILTER BY{/*<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/ >*/}</div>
                         <div className={classes.innerSide}  >
                         <div> <input type="checkbox"  onChange={this.checkPriceHandler1} checked={this.state.checkPrice1} /><label>Price 50-200$</label> </div>
                         <div> <input type="checkbox"  onChange={this.checkPriceHandler2} checked={this.state.checkPrice2} /><label>Price 200-400$</label> </div>
                         <div> <input type="checkbox"  onChange={this.checkPriceHandler3} checked={this.state.checkPrice3} /><label>Price more than 1000$</label> </div>
-                            <div> <input type="checkbox"  onChange={this.checkCategoryHandler1} checked={this.state.checkCategory1}/><label>Category : Camera</label> </div>
-                            <div> <input type="checkbox"  onChange={this.checkCategoryHandler2} checked={this.state.checkCategory2}/><label>Category : Light</label> </div>
+                        <div> <input type="checkbox"  onChange={this.checkCategoryHandler1} checked={this.state.checkCategory1}/><label>Category : Camera</label> </div>
+                        <div> <input type="checkbox"  onChange={this.checkCategoryHandler2} checked={this.state.checkCategory2}/><label>Category : Light</label> </div>
                         </div>
                      </div>
                      <br></br>
 
                      <div className={classes.Box}>
-                     <div className={classes.SideDiv}>FLENS IN<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
+                     <div className={classes.SideDiv}>FLENS IN{/*<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/ >*/}</div>
                         <div className={classes.innerSide} >
 
 
@@ -322,7 +322,7 @@ checkCategoryHandler2= () => {
                       <br></br>
 
                      <div className={classes.Box}>
-                     <div className={classes.SideDiv}>LCD SCR<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
+                     <div className={classes.SideDiv}>LCD SCR{/*<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/ >*/}</div>
                         <div className={classes.innerSide} >
                             
                         <div> <input type="checkbox"  /><label>18-55mm (47)</label> </div>
@@ -347,7 +347,7 @@ checkCategoryHandler2= () => {
 
 
 
-             <div>
+             <div className={classes.jana2}>
                  <div className={classes.ProductType}>
                      <div className={classes.Box, classes.TopBox}>SHOW BY PRODUCT TYPE</div>
                      <div className={classes.First}>
