@@ -7,6 +7,18 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { connect } from "react-redux";
 export default class Product extends Component{
 
+   state={
+       checkPrice:false,
+       checkCategory:false,
+   }
+
+   checkPriceHandler= () => {
+       this.setState({checkPrice:!this.state.checkPrice})
+
+   } 
+   checkCategoryHandler= () => {
+    this.setState({checkCategory:!this.state.checkCategory})
+} 
 
 
     render(){
@@ -19,6 +31,63 @@ export default class Product extends Component{
             {src: "https://cdn3.focuscamera.com/media//catalog/category/cache/specialty_1.jpg" , txt:"specialty"},
         ]
 
+
+
+            let displayProduct;
+             if(this.state.checkPrice){
+
+               
+                 displayProduct=
+                 Products.filter(prod => prod.price <250).map((prod,index) => ( 
+                 <ProductItem 
+                 key={index}
+                 name = {prod.name}
+                 price={prod.price}
+                 image={prod.image}
+                 info={prod.info}
+                 MFR={prod.MFR}
+                 Fc ={prod.FC}
+                 > </ProductItem>
+                 
+                 ))
+
+             }
+
+             else if(this.state.checkCategory){
+
+                displayProduct=
+                Products.filter(prod => prod.FC == "ILCE7M3KB").map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+                 
+             }
+
+             else{
+                displayProduct=
+                Products.map((prod,index) => ( 
+                <ProductItem 
+                key={index}
+                name = {prod.name}
+                price={prod.price}
+                image={prod.image}
+                info={prod.info}
+                MFR={prod.MFR}
+                Fc ={prod.FC}
+                > </ProductItem>
+                
+                ))
+             }
+
+        
         return(
             <div className={classes.Content}>
              <div className={classes.Side} >
@@ -30,11 +99,8 @@ export default class Product extends Component{
                      <div className={classes.Box }>
                      <div className={classes.SideDiv}>FILTER BY<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
                         <div className={classes.innerSide}  >
-
-                            
-                        <div> <input type="checkbox"  /><label>Free 2 Day Shipping (294)</label> </div>
-                            <div> <input type="checkbox" /><label>Free Standard Shipping (853)</label> </div>
-                            <div> <input type="checkbox"  /><label>Rebate Available (237)</label> </div>     
+                        <div> <input type="checkbox"  onChange={this.checkPriceHandler} checked={this.state.checkPrice} /><label>Price</label> </div>
+                            <div> <input type="checkbox"  onChange={this.checkCategoryHandler} checked={this.state.checkCategory}/><label>Category</label> </div>
                         </div>
                      </div>
                      <br></br>
@@ -97,18 +163,8 @@ export default class Product extends Component{
 
                      </div>
                  </div>
-            {Products.map((prod,index) => ( 
-            <ProductItem 
-            key={index}
-            name = {prod.name}
-            price={prod.price}
-            image={prod.image}
-            info={prod.info}
-            MFR={prod.MFR}
-            Fc ={prod.FC}
-            > </ProductItem>
-            
-            ))}  
+
+                {displayProduct} 
             </div>
             
               </div>

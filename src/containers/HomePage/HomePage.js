@@ -12,23 +12,139 @@ import video from '../../components/imges/video.jpg';
 import light from '../../components/imges/lighting.jpg';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import Modal from 'react-modal';
+import MyImage from './MyImage';
+
+
 
 export default class HomePage extends Component{
+
 
 
     render(){
 
         const images = [
-            {src:audio},
-            {src:bags},
-            {src: camera},
-            {src:computers},
-            {src:lenses},
-            {src: scopes},
-            {src:tripods},
-            {src:tv},
-            {src:video },
-            {src:light}
+            {src:audio,
+            name:"Audio",
+            price:'175$',
+            info:[
+                {"data" : "24.2MP BSI full-frame image sensor"},
+                {"data" :"High-speed BIONZ X processing-engine"},
+                {"data" : "Up to 10 fps with AF/AE tracking"},
+                {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                {"data" : "3-inch 922K-dot LCD touch screen"}
+        ],
+        MFR:"ILCE7M3K/B",
+        FC: "ILCE7M3KB"
+        },
+            {src:bags,
+                name:"Bags",
+                price:'170$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"},
+            {src: camera,
+                name:"Camera",
+                price:'255$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"},
+            {src:computers ,
+                name:"Computers",
+                price:'1000$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"},
+            {src:lenses,
+                name:"Lenses",
+                price:'125$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"},
+            {src: scopes,
+                name:"Scopes",
+                price:'123$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"},
+            {src:tripods,
+                name:"tripods",
+                price:'175$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"},
+            {src:tv,
+                name:"TV",
+                price:'400$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"},
+            {src:video,
+                name:"Video",
+                price:'195$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB" },
+            {src:light,
+                name:"Light",
+                price:'20$',
+                info:[
+                    {"data" : "24.2MP BSI full-frame image sensor"},
+                    {"data" :"High-speed BIONZ X processing-engine"},
+                    {"data" : "Up to 10 fps with AF/AE tracking"},
+                    {"data" : "4K full-frame HDR Movie with full pixel readout"},
+                    {"data" : "3-inch 922K-dot LCD touch screen"}
+            ],
+            MFR:"ILCE7M3K/B",
+            FC: "ILCE7M3KB"}
 
         ]
 
@@ -130,9 +246,19 @@ export default class HomePage extends Component{
           {images.map((image, index) => {
             return (
             <a key={index}>
-                <img src={image.src} />
+                <MyImage imgLink={image.src} 
+                price={image.price}
+                FC={image.FC}
+                MFR={image.MFR}
+                info={image.info}
+                name={image.name}/>
             </a>)})}
             </div>
+
+
+
+ 
+
 
 
 
