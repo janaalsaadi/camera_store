@@ -297,7 +297,7 @@ checkCategoryHandler2= () => {
                         <div className={classes.innerSide}  >
                         <div> <input type="checkbox"  onChange={this.checkPriceHandler1} checked={this.state.checkPrice1} /><label>Price 50-200$</label> </div>
                         <div> <input type="checkbox"  onChange={this.checkPriceHandler2} checked={this.state.checkPrice2} /><label>Price 200-400$</label> </div>
-                        <div> <input type="checkbox"  onChange={this.checkPriceHandler3} checked={this.state.checkPrice3} /><label>Price 400-...$</label> </div>
+                        <div> <input type="checkbox"  onChange={this.checkPriceHandler3} checked={this.state.checkPrice3} /><label>Price more than 1000$</label> </div>
                             <div> <input type="checkbox"  onChange={this.checkCategoryHandler1} checked={this.state.checkCategory1}/><label>Category : Camera</label> </div>
                             <div> <input type="checkbox"  onChange={this.checkCategoryHandler2} checked={this.state.checkCategory2}/><label>Category : Light</label> </div>
                         </div>
@@ -322,7 +322,7 @@ checkCategoryHandler2= () => {
                       <br></br>
 
                      <div className={classes.Box}>
-                     <div className={classes.SideDiv}>LCD SCR<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'70%'}}/></div>
+                     <div className={classes.SideDiv}>LCD SCR<FontAwesomeIcon  icon={faArrowDown} style={{paddingLeft:'65%'}}/></div>
                         <div className={classes.innerSide} >
                             
                         <div> <input type="checkbox"  /><label>18-55mm (47)</label> </div>
