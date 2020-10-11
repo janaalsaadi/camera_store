@@ -287,7 +287,7 @@ checkCategoryHandler2= () => {
         return(
             <div className={classes.Content}>
              <div className={classes.Side} >
-                 <p><a href="#">Home</a>/ <a href="#">PHOTO&VIDEO</a>/ <a href="#">CAMERAS</a></p>
+                 <p style={{width:'100%'}}><a href="#">Home</a>/ <a href="#">PHOTO&VIDEO</a>/ <a href="#">CAMERAS</a></p>
 
 
 
@@ -363,7 +363,10 @@ checkCategoryHandler2= () => {
                      </div>
                  </div>
 
+              
+
                 {displayProduct} 
+
             </div>
             
               </div>
